@@ -1,0 +1,40 @@
+{% extends 'team.html' %}
+
+{% block content %}
+
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #db0f00;">
+        <a class="navbar-brand" href="/">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a class="nav-link" style="color: white;" href="">Hello {{ session['username'] }}</a>
+                <a class="nav-link" style="color:white;" href="/logout">Logout </a>
+            </form>
+        </div>
+</nav>
+<div class="text-center jumbotron" style="margin: 1%; background: white">
+
+    <textarea name="text" id="textofpdf" style="width: 100%; height: 70%">
+        {{ filecontents }}
+    </textarea>
+    <br/><br/>
+    <a href="/dashboard"><input type="button" value="Update" onclick="javascript:saveAspdf()" class="btn btn-outline-danger"></a>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+<script>
+    function saveAspdf() {
+        var text = document.getElementById('textofpdf').value
+        var pdf = new jsPDF('p','pt','a4');
+        pdf.text(text, 30, 30);
+        pdf.save("web.pdf");
+    }
+</script>
+{% endblock %}

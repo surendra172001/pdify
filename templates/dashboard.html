@@ -1,0 +1,77 @@
+{% extends 'login.html' %}
+
+{% block content %}
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #db0f00;">
+        <a class="navbar-brand" href="/">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item active">
+
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a class="nav-link" style="color: white;" href="">Hello {{ session['username'] }}</a>
+                <a class="nav-link" style="color:white;" href="/logout">Logout </a>
+            </form>
+        </div>
+</nav>
+{% if message %}
+<div class="alert alert-success" role="alert">
+    This is a success alert—check it out!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
+<div class="text-center jumbotron" style="margin: 1% 25% 1%; background: #db0f00">
+    <h2 style="color: white">Edit pdf</h2>
+    <br>
+    <form method="POST" action="{{ url_for('pdfupload') }}" enctype="multipart/form-data">
+        <input type="file" name="file" accept="application/pdf" />
+        <br>
+        <br>
+        <input type="submit" value="Upload" class="btn btn-outline-light">
+    </form>
+</div>
+
+<div class="text-center jumbotron" style="margin: 1% 25% 1%; background: #db0f00">
+    <h2 style="color: white">Merge two pdfs</h2>
+    <br>
+    <form method="POST" action="{{ url_for('pdfuploadformerge') }}" enctype="multipart/form-data">
+        <input type="file" name="file1" accept="application/pdf" />
+        <br/>
+        <input type="file" name="file2" accept="application/pdf" />
+        <br>
+        <br>
+        <input type="submit" value="Upload" class="btn btn-outline-light">
+    </form>
+</div>
+
+<div class="text-center jumbotron" style="margin: 1% 25% 1%; background: #db0f00">
+    <h2 style="color: white">Rotate all pages of a pdf</h2>
+    <br>
+    <form method="POST" action="{{ url_for('pdfuploadforrotate') }}" enctype="multipart/form-data">
+        <input type="file" name="file" accept="application/pdf" />
+        <br/>
+        <br/>
+        <div class="form-group">
+          <div class="col-sm-6 col-md-4" style="margin-left:33%;">
+            <font color="white">Select rotation:</font>
+            <select id="rotation_angle" name="rotation_angle" class="form-control">
+              <option>left</option>
+              <option>right</option>
+              <option>upside down</option>
+            </select>
+          </div>
+        </div>
+        <br/>
+        <input type="submit" value="Upload" class="btn btn-outline-light">
+    </form>
+</div>
+
+{% endblock %}

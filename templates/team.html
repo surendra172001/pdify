@@ -1,0 +1,71 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<style type="text/css">
+    .jumbotron div {
+        padding-top: 2%;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #db0f00;">
+        <a class="navbar-brand" href="/">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/about">About </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/login">Login </a>
+                </li>
+            </ul>
+
+        </div>
+</nav>
+<style>
+    h5, h6, h7 {
+        color:white;
+    }
+</style>
+<div class="container-fluid text-center">
+    <div class="jumbotron bg-danger" style="margin-top: 4%">
+
+        <h2 style="color:white;">Team</h2>
+
+        <div class="row">
+            <div class="col-sm">
+                <div>
+                    <img src="../static/images/google.png" class="img-fluid" style="vertical-align: center; border-radius: 50%; margin-bottom:3%;">
+                    <h5>Mohammed Mehdi</h5>
+                    <h6>Backend Developer</h6>
+                    <h7>mehdi.patel@gmail.com</h7>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div>
+                    <img src="../static/images/google.png" class="img-fluid" style="vertical-align: center; border-radius: 50%; margin-bottom: 3%;">
+                    <h5>Naveen Nehru</h5>
+                    <h6>Designer</h6>
+                    <h7>naveen@gmail.com</h7>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div>
+                    <img src="../static/images/google.png" class="img-fluid" style="vertical-align: center; border-radius: 50%; margin-bottom: 3%;">
+                    <h5>Surendra Pandey</h5>
+                    <h6>Frontend Developer</h6>
+                    <h7>surendra@gmail.com</h7>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
